@@ -69,6 +69,32 @@ namespace RegisterFormAPI.Controllers
             return Ok(new { message = "User registered successfully." });
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _context.Users
+                .Where(u => u.Id == id)
+                .Select(u => new
+                {
+                    u.Id,
+                    u.FullName,
+                    u.Email,
+                    u.Phone,
+                    u.Bio,
+                    u.Skills,
+                    u.ResumeFilePath
+                })
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+                return NotFound("User not found");
+
+            return Ok(user);
+        }
+
+
+
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -85,12 +111,16 @@ namespace RegisterFormAPI.Controllers
 
             var token = GenerateJwtToken(user.Email);
 
+            // ✅ Return token and user data (excluding password)
             return Ok(new
             {
                 token = token,
-                message = "Login successful"
+                message = "Login successful",
+                userId = user.Id, // <-- add this!
+
             });
         }
+
 
         private string GenerateJwtToken(string email)
         {
