@@ -9,6 +9,7 @@ C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\RegisterFormA
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Humanizer.dll
+C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -147,6 +148,7 @@ C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\RegisterFormA
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\RegisterFormAPI.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\RegisterFormAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\RegisterFormAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\RegisterFormAPI.sourcelink.json
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\scopedcss\bundle\RegisterFormAPI.styles.css
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\user\Desktop\Job_backend\RegisterFormAPI\obj\Debug\net9.0\staticwebassets.development.json
