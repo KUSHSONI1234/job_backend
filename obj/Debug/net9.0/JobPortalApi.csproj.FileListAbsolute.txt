@@ -76,6 +76,7 @@ C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\JobPortalApi.Ass
 C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\JobPortalApi.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\JobPortalApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\JobPortalApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\JobPortalApi.sourcelink.json
 C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\scopedcss\bundle\JobPortalApi.styles.css
 C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\user\Desktop\Job_backend\JobPortalApi\obj\Debug\net9.0\staticwebassets.development.json

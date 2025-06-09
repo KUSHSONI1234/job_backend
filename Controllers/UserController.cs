@@ -25,11 +25,9 @@ namespace RegisterFormAPI.Controllers
             _configuration = configuration;
         }
 
-        // ✅ Register User
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm] User user)
         {
-            // Basic validations
             if (string.IsNullOrWhiteSpace(user.FullName) ||
                 string.IsNullOrWhiteSpace(user.Email) ||
                 string.IsNullOrWhiteSpace(user.Phone) ||
@@ -43,14 +41,12 @@ namespace RegisterFormAPI.Controllers
             if (!user.Email.Contains("@") || !user.Email.Contains("."))
                 return BadRequest("Invalid email format.");
 
-            // Phone number validation: only digits, 10 characters
             if (!Regex.IsMatch(user.Phone, @"^[6-9]\d{9}$"))
                 return BadRequest("Invalid phone number. It should be a 10-digit Indian mobile number.");
 
             if (await _context.Users.AnyAsync(u => u.Email == user.Email))
                 return BadRequest("Email already registered.");
 
-            // Save resume
             if (user.Resume != null)
             {
                 var uploads = Path.Combine(_env.ContentRootPath, "Uploads");
@@ -72,7 +68,6 @@ namespace RegisterFormAPI.Controllers
         }
 
 
-
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -85,15 +80,25 @@ namespace RegisterFormAPI.Controllers
 
             var token = GenerateJwtToken(user.Email);
 
+            var userData = new
+            {
+                user.Id,
+                user.FullName,
+                user.Email,
+                user.Phone,
+                user.Skills,
+                user.Bio,
+                user.ResumeFilePath
+            };
+
             return Ok(new
             {
                 token,
-                message = "Login successful",
-
+                user = userData,
+                message = "Login successful"
             });
         }
 
-        // ✅ JWT Token Generator
         private string GenerateJwtToken(string email)
         {
             var jwtSettings = _configuration.GetSection("Jwt");
@@ -116,5 +121,30 @@ namespace RegisterFormAPI.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+                return NotFound("User not found.");
+
+            var userData = new
+            {
+                user.Id,
+                user.FullName,
+                user.Email,
+                user.Phone,
+                user.Skills,
+                user.Bio,
+                user.ResumeFilePath
+            };
+
+            return Ok(userData);
+        }
+
+
+
     }
 }
