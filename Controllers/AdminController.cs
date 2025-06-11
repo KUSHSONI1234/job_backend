@@ -14,7 +14,7 @@ namespace RegisterFormAPI.Controllers
         public AdminController(AppDbContext context)
         {
             _context = context;
-            SeedDefaultAdmin(); // Move logic to a private method
+            SeedDefaultAdmin(); 
         }
 
         private void SeedDefaultAdmin()
