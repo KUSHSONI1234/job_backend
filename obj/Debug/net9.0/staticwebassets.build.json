@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Wn6lY13kEGzackQ8t9UQqsg3YlXZmW3uRc90FhWANUw=",
+  "Source": "RegisterApi",
+  "BasePath": "_content/RegisterApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
