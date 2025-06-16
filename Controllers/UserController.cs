@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RegisterApi.Data;
 using RegisterApi.Models;
@@ -7,7 +8,6 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-
 namespace RegisterApi.Controllers
 {
     [ApiController]
@@ -15,7 +15,6 @@ namespace RegisterApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _context;
-
         private readonly IConfiguration _config;
 
         public UserController(AppDbContext context, IConfiguration config)
@@ -23,6 +22,7 @@ namespace RegisterApi.Controllers
             _context = context;
             _config = config;
         }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] User user)
         {
@@ -55,18 +55,13 @@ namespace RegisterApi.Controllers
             return Ok(new { message = "User registered successfully" });
         }
 
-
-
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel login)
         {
             var user = _context.Users.SingleOrDefault(u => u.Email == login.Email && u.Password == login.Password);
             if (user == null)
-            {
                 return Unauthorized("Invalid email or password.");
-            }
 
-            // Create claims
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -92,6 +87,24 @@ namespace RegisterApi.Controllers
             });
         }
 
+        [Authorize]
+        [HttpGet("me")]
+        public IActionResult GetLoggedInUser()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Invalid token");
+
+            var user = _context.Users.FirstOrDefault(u => u.Id.ToString() == userId);
+            if (user == null)
+                return NotFound("User not found");
+
+            return Ok(new
+            {
+                fullName = user.FirstName + " " + user.LastName,
+                email = user.Email
+            });
+        }
     }
 }
