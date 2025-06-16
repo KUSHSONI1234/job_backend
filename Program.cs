@@ -6,24 +6,21 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// JWT Config
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 
-// Enable CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularClient",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200") // Angular dev server
+            policy.WithOrigins("http://localhost:4200")
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();
         });
 });
 
-// JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -31,7 +28,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(x =>
 {
-    x.RequireHttpsMetadata = false; // Dev only
+    x.RequireHttpsMetadata = false;
     x.SaveToken = true;
     x.TokenValidationParameters = new TokenValidationParameters
     {
@@ -45,7 +42,6 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Add DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -54,10 +50,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// Middleware
 app.UseCors("AllowAngularClient");
 
-app.UseAuthentication();  // Should be before UseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
