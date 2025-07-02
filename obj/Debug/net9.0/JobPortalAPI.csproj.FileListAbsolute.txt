@@ -9,6 +9,7 @@ C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\JobPortalAPI.pdb
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Humanizer.dll
+C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -147,6 +148,7 @@ C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\JobPortalAPI.Ass
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\JobPortalAPI.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\JobPortalAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\JobPortalAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\JobPortalAPI.sourcelink.json
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\scopedcss\bundle\JobPortalAPI.styles.css
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\user\Desktop\Job_Backend\JobPortalAPI\obj\Debug\net9.0\staticwebassets.development.json
